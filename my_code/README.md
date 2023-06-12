@@ -9,7 +9,7 @@
 - https://cpro95.tistory.com/456
 
 ### Usage
-- token (30 days): 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
+- token (30 days): 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
 - checked
   + repo
   + workflow
