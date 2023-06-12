@@ -6,12 +6,9 @@
 - https://cpro95.tistory.com/456
 
 ### Usage
-- token: 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
-
+- token (30 days): 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
 
 ## conda env
 ```
 $ conda create -n flask python==3.10
 ```
-
-add
