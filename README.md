@@ -1,5 +1,8 @@
 # python_flask_web_app
 
+## setting github cli
+- https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+
 ## github login
 
 ### Reference
@@ -12,3 +15,4 @@
 ```
 $ conda create -n flask python==3.10
 ```
+
