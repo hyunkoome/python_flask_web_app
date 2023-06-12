@@ -9,7 +9,12 @@
 - https://cpro95.tistory.com/456
 
 ### Usage
-- token (30 days): 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
+- token (30 days): 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
+- check
+++ repo
+++ workflow
+++ admin:org
+++ user
 
 ## conda env
 ```
