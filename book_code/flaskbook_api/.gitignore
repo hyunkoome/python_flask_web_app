@@ -1,16 +1,10 @@
-# Created by https://www.gitignore.io/api/python
-# Edit at https://www.gitignore.io/?templates=python
-
-*.DS_Store
-
-### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
 # C extensions
-#*.so
+*.so
 
 # Distribution / packaging
 .Python
@@ -31,8 +25,6 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-*.whl
-*.zip
 MANIFEST
 
 # PyInstaller
@@ -55,6 +47,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
+*.py,cover
 .hypothesis/
 .pytest_cache/
 
@@ -98,13 +91,18 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
-# celery beat schedule file
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
 celerybeat-schedule
+celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
 
 # Environments
+.env
 .venv
 env/
 venv/
@@ -129,13 +127,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# End of https://www.gitignore.io/api/python
-
-# PyCharm
-.idea/
-
-# mprof
-*.dat
-
-*.whl
