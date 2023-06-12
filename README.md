@@ -10,11 +10,11 @@
 
 ### Usage
 - token (30 days): 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
-- check
-++ repo
-++ workflow
-++ admin:org
-++ user
+- checked
+  + repo
+  + workflow
+  + admin:org
+  + user
 
 ## conda env
 ```
