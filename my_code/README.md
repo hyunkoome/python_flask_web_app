@@ -8,14 +8,6 @@
 ### Reference
 - https://cpro95.tistory.com/456
 
-### Usage
-- token (30 days): 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
-- checked
-  + repo
-  + workflow
-  + admin:org
-  + user
-
 ## conda env
 ```
 $ conda create -n flask python==3.10
