@@ -33,7 +33,7 @@ def create_app():
     # login_manager.init_app(app)
 
     # crud 패키지로부터 views를 import한다
-    from ..apps.crud import views as crud_views
+    #from ..apps.crud import views as crud_views
     from .crud import views as crud_views
     #
     # register_blueprint를 사용해 views의 crud를 앱에 등록한다
