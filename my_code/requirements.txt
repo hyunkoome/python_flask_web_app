@@ -9,5 +9,7 @@ flask-debugtoolbar==0.13.1
 flask-mail==0.9.1
 flask-sqlalchemy==3.0.3
 flask-migrate==4.0.4
+flask-wtf==1.1.1
+
 
 

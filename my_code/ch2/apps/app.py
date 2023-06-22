@@ -2,17 +2,13 @@ from flask import Flask  # , render_template
 from pathlib import Path
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_wtf.csrf import CSRFProtect
+from apps.config import config
 # from flask_login import LoginManager
 
-# from flask_wtf.csrf import CSRFProtect
-#
-# from apps.config import config
-
 db = SQLAlchemy()
+csrf = CSRFProtect()
 
-
-# csrf = CSRFProtect()
 # # LoginManager를 인스턴스화한다
 # login_manager = LoginManager()
 # # login_view 속성에 미로그인 시에 리다이렉트하는 엔드포인트를 지정한다
@@ -24,29 +20,33 @@ db = SQLAlchemy()
 
 # create_app 함수를 작성한다
 # def create_app(config_key):
-def create_app():
+# def create_app():
+def create_app(config_key):
     # Flask 인스턴스 생성
     app = Flask(__name__)
+    app.config.from_object(config[config_key])
 
-    # 앱의 config 를 설정
-    app.config.from_mapping(
-        SECRET_KEY="rlagusrn",
-        SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent.parent / 'local.sqlite'}",
-        SQLALCHEMY_TRACK_MODIFICATIONS=False
-    )
-    # app.config.from_object(config[config_key])
+    # # 앱의 config 를 설정
+    # app.config.from_mapping(
+    #     SECRET_KEY="2AZSMss3p5QPbcY2hBsJ",
+    #     SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent.parent / 'local.sqlite'}",
+    #     SQLALCHEMY_TRACK_MODIFICATIONS=False,
+    #     SQLALCHEMY_ECHO=True,
+    #     WTF_CSRF_SECRET_KEY = "AuwzyszU5sugKN7KZs6f",
+    # )
 
     # SQLAlchemy와 앱을 연계한다
     db.init_app(app)
     # Migrate와 앱을 연계한다
     Migrate(app, db)
-    # csrf.init_app(app)
+    csrf.init_app(app)
+
     # # login_manager를 애플리케이션과 연계한다
     # login_manager.init_app(app)
 
     # crud 패키지로부터 views를 import한다
     # from ..apps.crud import views as crud_views
-    from .crud import views as crud_views
+    from apps.crud import views as crud_views
     #
     # register_blueprint를 사용해 views의 crud를 앱에 등록한다
     app.register_blueprint(crud_views.crud, url_prefix="/crud")
@@ -81,5 +81,5 @@ def create_app():
 #     return render_template("500.html"), 500
 
 
-if __name__ == '__main__':
-    create_app()
+# if __name__ == '__main__':
+#     create_app()
