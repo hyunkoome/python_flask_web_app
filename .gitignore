@@ -139,3 +139,6 @@ dmypy.json
 *.dat
 
 *.whl
+
+# db
+*.db

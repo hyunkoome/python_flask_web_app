@@ -1,12 +1,17 @@
-from flask import Flask #, render_template
+from flask import Flask  # , render_template
+from pathlib import Path
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
+
 # from flask_login import LoginManager
-# from flask_migrate import Migrate
-# from flask_sqlalchemy import SQLAlchemy
+
 # from flask_wtf.csrf import CSRFProtect
 #
 # from apps.config import config
 
-# db = SQLAlchemy()
+db = SQLAlchemy()
+
+
 # csrf = CSRFProtect()
 # # LoginManager를 인스턴스화한다
 # login_manager = LoginManager()
@@ -22,18 +27,25 @@ from flask import Flask #, render_template
 def create_app():
     # Flask 인스턴스 생성
     app = Flask(__name__)
+
+    # 앱의 config 를 설정
+    app.config.from_mapping(
+        SECRET_KEY="rlagusrn",
+        SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent.parent / 'local.sqlite'}",
+        SQLALCHEMY_TRACK_MODIFICATIONS=False
+    )
     # app.config.from_object(config[config_key])
 
-    # # SQLAlchemy와 앱을 연계한다
-    # db.init_app(app)
-    # # Migrate와 앱을 연계한다
-    # Migrate(app, db)
+    # SQLAlchemy와 앱을 연계한다
+    db.init_app(app)
+    # Migrate와 앱을 연계한다
+    Migrate(app, db)
     # csrf.init_app(app)
     # # login_manager를 애플리케이션과 연계한다
     # login_manager.init_app(app)
 
     # crud 패키지로부터 views를 import한다
-    #from ..apps.crud import views as crud_views
+    # from ..apps.crud import views as crud_views
     from .crud import views as crud_views
     #
     # register_blueprint를 사용해 views의 crud를 앱에 등록한다
