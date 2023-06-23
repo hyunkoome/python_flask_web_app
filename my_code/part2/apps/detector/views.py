@@ -241,7 +241,7 @@ def detect(image_id):
     # user_images 테이블로부터 레코드를 취득한다
     user_image = db.session.query(UserImage).filter(UserImage.id == image_id).first()
     if user_image is None:
-        flash("물체 대상의 이미지가 존재하지 않습니다.")
+        flash("물체 검지 대상의 이미지가 존재하지 않습니다.")
         return redirect(url_for("detector.index"))
 
     # 물체 검지 대상의 이미지 패스를 취득한다
