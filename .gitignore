@@ -142,11 +142,8 @@ dmypy.json
 
 # db
 *.db
+*.sqlite
 
 # models
 *.pt
 *.pth
-
-# test coverage report
-htmlcov/
-.coverage
